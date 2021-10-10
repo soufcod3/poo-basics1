@@ -9,23 +9,24 @@ class Car
     public string $fuel;
     private int $fuelLevel;
 
-    public function __construct(string $color = 'Grey', int $nbSeats = 5, string $fuel = 'Hybrid')
+    public function __construct(string $color, int $nbSeats = 5, string $fuel)
 {
-    $this->color = $color;
+    $this->color = strtolower($color);
     $this->nbSeats = $nbSeats;
     $this->fuel = $fuel;
 }
  
-    public function start()
+    public function start(): string
 {
+    return "Le moteur vient de s'allumer. C'est une jolie voiture de couleur {$this->color}. <br>" .
+    "Elle possède {$this->nbSeats} siège(s) et est de type {$this->fuel}.";
 
 }
 
     public function forward(int $currentSpeed) :string
 {
     $this->currentSpeed = $currentSpeed;
-
-    return "Go !";
+    return "C'est parti ! La voiture a accéléré.";
 }
 
     public function brake() :string
@@ -33,39 +34,39 @@ class Car
     $sentence = "";
     while ($this->currentSpeed > 0) {
         $this->currentSpeed--;
-        $sentence .= "Brake !!!";
+        $sentence .= "On freine !";
     }        
-    $sentence .= "I'm stopped !";
+    $sentence .= "<br> La voiture s'est arrêté ! <br>";
     return $sentence;
 }
 
-public function getNbWheels()
+    public function getNbWheels(): int
 {
-
+    return $this->nbWheels;
 }
 
-    public function getCurrentSpeed()
+    public function getCurrentSpeed(): string
 {
-
+    return "Vitesse de la voiture: {$this->currentSpeed} km/h";
 }
 
-    public function getColor()
+    public function getColor($color): string
 {
-
+    return $this->color;
 }
 
-    public function getNbSeats()
+    public function getNbSeats(): int
 {
-
+    return $this->nbSeats;
 }
 
-    public function getFuel()
+    public function getFuel(): string
 {
-
+    return $this->fuel;
 }
 
-    public function getFuelLevel()
+    public function getFuelLevel(): string
 {
-
+    return "Niveau du carburant: {$this->fuelLevel} %";
 }
 }

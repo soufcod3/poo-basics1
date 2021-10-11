@@ -3,10 +3,10 @@
 class Car 
 {
     private int $nbWheels;
-    public int $currentSpeed;
-    public string $color;
+    private int $currentSpeed;
+    private string $color;
     private int $nbSeats;
-    public string $fuel;
+    private string $fuel;
     private int $fuelLevel;
 
     public function __construct(string $color, int $nbSeats = 5, string $fuel)

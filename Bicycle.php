@@ -3,7 +3,7 @@
 class Bicycle
 {
     private string $color;
-    public int $currentSpeed;
+    private int $currentSpeed;
     private int $nbSeats = 3;
     private int $nbWheels;
 
